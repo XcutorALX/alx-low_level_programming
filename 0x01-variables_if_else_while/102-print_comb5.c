@@ -17,7 +17,7 @@ int main(void)
 			if (n < j)
 			{
 				putchar((n / 10) + 48);
-				putchar((n %10) + 48);
+				putchar((n % 10) + 48);
 				putchar(' ');
 				putchar((j / 10) + 48);
 				putchar((j % 10) + 48);
