@@ -1,19 +1,19 @@
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
-/* more headers goes there */
-
-/* betty style doc for function main goes there */
 
 /**
  * main -Entry point
  *
- * Returb: Always 0(success)
+ * Description: 'Checks the last digit of a number'
+ *
+ * Return: Always 0(success)
  */
 
 int main(void)
 {
 	int n;
+
 	srand(time(0));
 	n = rand() - RAND_MAX / 2;
 
@@ -30,6 +30,5 @@ int main(void)
 	{
 		printf("%d is zero\n", n);
 	}
-	
 	return (0);
 }
