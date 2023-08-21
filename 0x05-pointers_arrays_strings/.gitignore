@@ -17,3 +17,4 @@
 2_putchar.c
 _putchar.c
 4-print_rev
+5-rev_string
