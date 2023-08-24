@@ -26,10 +26,6 @@ char *cap_string(char *str)
 				newWord = 0;
 			}
 		}
-		else if (str[i] >= 'A' &&
-			str[i] <= 'Z' &&
-			newWord == 0)
-			str[i] += 32;
 		else if (str[i] == ' ' ||
 			str[i] == '\t' ||
 			str[i] == '\n' ||
