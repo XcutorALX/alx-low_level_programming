@@ -52,11 +52,7 @@ int getLine(char **lineptr, size_t *bufferSize, FILE *stream)
 		return (-1);
 	}
 
-	if (c == '\n')
-		(*lineptr)[i] = c;
-		i++;
-
-	*bufferSize = i + 1;
+	*bufferSize = i;
 	*lineptr = realloc(*lineptr, *bufferSize * sizeof(char));
 	(*lineptr)[i] = '\0';
 

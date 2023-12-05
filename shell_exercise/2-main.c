@@ -11,9 +11,10 @@ int main(void)
 {
 	size_t count;
 	char str[] = "This is the day that i win";
+	char delim[] = " ";
 	char **split;
 
-	split = strTok(str, ' ');
+	split = strTok(str, delim);
 
 	for (count = 0; split[count]; count++)
 	{

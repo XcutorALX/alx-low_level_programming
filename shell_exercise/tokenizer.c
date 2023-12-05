@@ -13,7 +13,7 @@
  * return: returns an array of strings
  */
 
-char **strTok(char *str, char delim)
+char **tokenize(char *str, char *delim)
 {
 	size_t count, size;
 	char **split;
@@ -28,10 +28,15 @@ char **strTok(char *str, char delim)
 		exit(EXIT_FAILURE);
 	}
 
-	buffer = strtok(str, &delim);
+	buffer = strtok(str, delim);
 	split[0] = buffer;
 
-	for (count = 1; buffer = strtok(NULL, &delim); count++)
+	if (!buffer)
+	{
+		return (NULL);
+	}
+
+	for (count = 1; buffer = strtok(NULL, delim); count++)
 	{
 		if (count == size - 1)
 		{

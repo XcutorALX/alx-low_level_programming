@@ -4,7 +4,8 @@
 #include "main.h"
 
 /**
- * main: prints '$ 'and waits for user to enter a line
+ * main: simple shell that runs commands without any argument and
+ * with their full path
  * 
  * Return: always returns 0
  */
@@ -13,11 +14,14 @@ int main(void)
 {
 	size_t bufferSize = 1024;
 	char *lineptr = NULL;
+	char delim[] = " ";
+	char **command;
 	
 	printf("$ ");
-	while(getline(&lineptr, &bufferSize, stdin) != -1)
+	while(getLine(&lineptr, &bufferSize, stdin) != -1)
 	{
-		printf("%s", lineptr);
+		command = tokenize(lineptr, delim);
+		shellHelper(command);
 		printf("$ ");
 	}
 	
