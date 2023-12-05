@@ -17,18 +17,19 @@ char **tokenize(char *str, char *delim)
 {
 	size_t count, size;
 	char **split;
+	char *str_cpy = strdup(str);
 	char *buffer;
 
 	size = 1024;
-	split = malloc(size * sizeof(char));
+	split = malloc(size * sizeof(char *));
 
 	if (!split)
 	{
-		perror("Memory reallocation error");
+		perror("Memory reallocation error third");
 		exit(EXIT_FAILURE);
 	}
 
-	buffer = strtok(str, delim);
+	buffer = strtok(str_cpy, delim);
 	split[0] = buffer;
 
 	if (!buffer)
@@ -41,11 +42,11 @@ char **tokenize(char *str, char *delim)
 		if (count == size - 1)
 		{
 			size *= 1.5;
-			split = realloc(split, size * sizeof(char));
+			split = realloc(split, size * sizeof(char *));
 
 			if (!split)
 			{
-				perror("Memory reallocation error");
+				perror("Memory reallocation error second");
 				exit(EXIT_FAILURE);
 			}
 		}
@@ -54,11 +55,11 @@ char **tokenize(char *str, char *delim)
 	split[count++] = NULL;
 	size = count + 1;
 
-	split = realloc(split, size * sizeof(split));
+	split = realloc(split, size * sizeof(char *));
 	
 	if (!split)
 	{
-		perror("Memory reallocation error");
+		perror("Memory reallocation error third");
 		exit(EXIT_FAILURE);
 	}
 
