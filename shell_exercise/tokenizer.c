@@ -17,7 +17,6 @@ char **tokenize(char *str, char *delim)
 {
 	size_t count, size;
 	char **split;
-	char *str_cpy = strdup(str);
 	char *buffer;
 
 	size = 1024;
@@ -29,7 +28,7 @@ char **tokenize(char *str, char *delim)
 		exit(EXIT_FAILURE);
 	}
 
-	buffer = strtok(str_cpy, delim);
+	buffer = strtok(str, delim);
 	split[0] = buffer;
 
 	if (!buffer)
@@ -39,6 +38,7 @@ char **tokenize(char *str, char *delim)
 
 	for (count = 1; buffer = strtok(NULL, delim); count++)
 	{
+//		printf("%s", buffer);
 		if (count == size - 1)
 		{
 			size *= 1.5;
@@ -62,6 +62,6 @@ char **tokenize(char *str, char *delim)
 		perror("Memory reallocation error third");
 		exit(EXIT_FAILURE);
 	}
-
+	
 	return (split);
 }	
