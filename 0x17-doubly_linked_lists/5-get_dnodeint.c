@@ -1,7 +1,8 @@
 #include "lists.h"
 
 /**
- * get_dnodeint_at_index - gets the integer at the specifies node of a dlistint_t list
+ * get_dnodeint_at_index - gets the integer at the specifies node
+ * of a dlistint_t list
  *
  * @head: the head of the list
  * @index: the index of the node to find
