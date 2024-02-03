@@ -125,7 +125,7 @@ int insert_helper(shash_table_t *ht, shash_node_t *node)
 }
 
 /**
- * hash_table_create - creates an empty hash table
+ * shash_table_create - creates an empty hash table
  *
  * @size: the size of the table to create
  *
@@ -260,8 +260,8 @@ void shash_table_print_rev(const shash_table_t *ht)
 	unsigned int first;
 
 	if (ht == NULL)
-                return;
-	
+		return;
+
 	first = 0;
 	printf("{");
 
