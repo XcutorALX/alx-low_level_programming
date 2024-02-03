@@ -41,6 +41,19 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	else
 	{
 		tmp = (ht->array)[index];
+
+		while (tmp != NULL)
+		{
+			if (strcmp(tmp->key, keyDup) == 0)
+			{
+				free(tmp->value);
+				tmp->value = valueDup;
+				return (1);
+			}
+			tmp = tmp->next;
+		}
+
+		tmp = (ht->array)[index];
 		new->next = tmp;
 		(ht->array)[index] = new;
 	}
