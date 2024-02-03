@@ -5,6 +5,8 @@
 
 /**
  * hash_table_print - prints all the elements in a hash table
+ *
+ * @ht: the hash table
  */
 
 void hash_table_print(const hash_table_t *ht)
@@ -20,18 +22,15 @@ void hash_table_print(const hash_table_t *ht)
 	for (i = 0; i < ht->size; i++)
 	{
 		current = (ht->array)[i];
-		if (current != NULL)
+		while (current != NULL)
 		{
-			while (current != NULL)
-			{
-				if (first != 0)
-					printf(", ");
-				else
-					first = 1;
+			if (first != 0)
+				printf(", ");
+			else
+				first = 1;
 
-				printf("'%s': '%s'", current->key, current->value);
-				current = current->next;
-			}
+			printf("'%s': '%s'", current->key, current->value);
+			current = current->next;
 		}
 	}
 	printf("}\n");
