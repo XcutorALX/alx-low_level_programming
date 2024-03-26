@@ -1,0 +1,27 @@
+# Usage:
+# make		# compiles the school executable with the necessary source files
+
+CC = gcc
+SRC = main.c school.c
+OBJ = $(SRC:%.c=%.o)
+NAME = school
+RM = rm -f
+
+all: $(NAME)
+
+$(NAME): $(OBJ)
+	$(CC) $^ -o $@
+
+%.o : %.c
+	$(CC) -c $< -o $@
+
+clean:
+	$(RM) *~ $(NAME)
+
+oclean:
+	$(RM) $(OBJ)
+
+fclean:
+	$(RM) $(OBJ) *~ $(NAME)
+
+re: fclean all
