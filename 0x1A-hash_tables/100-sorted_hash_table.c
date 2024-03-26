@@ -75,16 +75,14 @@ int insert_helper(shash_table_t *ht, shash_node_t *node)
 	int comp, revComp;
 	shash_node_t *current, *rev;
 
-	current = ht->shead;
-	rev = ht->stail;
-
-	if (current == NULL)
+	if (ht->shead == NULL)
 	{
 		ht->shead = node;
 		ht->stail = node;
 		return (1);
 	}
-	while (current != NULL)
+	for (current = ht->shead, rev = ht->stail; current != NULL;
+			current = current->snext, rev = rev->sprev)
 	{
 		comp = strcmp(node->key, current->key);
 		revComp = strcmp(node->key, rev->key);
@@ -96,7 +94,6 @@ int insert_helper(shash_table_t *ht, shash_node_t *node)
 				current->sprev->snext = node;
 			else
 				ht->shead = node;
-
 			current->sprev = node;
 			return (1);
 		}
@@ -111,8 +108,6 @@ int insert_helper(shash_table_t *ht, shash_node_t *node)
 			rev->snext = node;
 			return (1);
 		}
-		current = current->snext;
-		rev = rev->sprev;
 	}
 	return (0);
 }
