@@ -1,9 +1,9 @@
 # Usage:
 # make		# builds the executable school using the required source file
 
-CC := gcc
+CC = gcc
 
-SRC := main.c school.c
+SRC = main.c school.c
 
 all: $(SRC)
-	${CC} $(SRC) -o school
+	$(CC) $(SRC) -o school
