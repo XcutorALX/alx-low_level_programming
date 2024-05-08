@@ -1,1 +1,12 @@
-*.main
+# Exclude all files except those ending with .c, .h, .md, or -O
+
+# Exclude all files except .c, .h, .md, or -O files
+*
+
+# Include .c, .h, .md, or -O files
+!*.c
+!*.h
+!*.md
+!*-O
+
+*main.c
