@@ -47,5 +47,5 @@ int interpolation_search(int *array, size_t size, int value)
 			lo = pos + 1;
 	}
 
-	return ((array[hi] == value) ? (int)hi : -1);
+	return (-1);
 }
